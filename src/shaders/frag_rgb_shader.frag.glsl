@@ -10,7 +10,7 @@ void main() {
 
     float r = 1 - x + y;
     float g = x + y; 
-    float b = 1.5 - y;
+    float b = 1. - y;
 
     FragColour = vec4(r, g, b, 1.0f);
 }
