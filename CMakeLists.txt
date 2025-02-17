@@ -16,6 +16,8 @@ add_executable(
     src/classes/Classes.h
     src/classes/Shader.h
     src/classes/Shader.cpp
+    src/classes/Shape.h
+    src/classes/Shape.cpp
     src/classes/debug.cpp
     src/classes/debug.h
     src/classes/ElementBufferObject.h 
@@ -26,6 +28,6 @@ add_executable(
     src/classes/VertexBufferObject.cpp
     src/classes/Texture.h 
     src/classes/Texture.cpp
-)
+    )
 
 target_link_libraries(learn_shaders glfw OpenGL::GL)
