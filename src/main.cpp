@@ -1,12 +1,5 @@
-/*
- * This template contains code for creating an empty
- * window in OpenGL.
- */
+// This project is just a playground for shader programming. 
 
-#include "classes/ElementBufferObject.h"
-#include "classes/Shape.h"
-#include "classes/VertexArrayObject.h"
-#include "classes/VertexBufferObject.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "classes/Classes.h"
@@ -29,42 +22,6 @@ float vertices[] = {
 unsigned int indices[] = {
     0, 1, 3, // first Triangle
     1, 2, 3  // second Triangle
-};
-
-float vert1[] = {
-     0.0f,  1.0f, 0.0f,
-     0.5f, -0.50f, 0.0f,
-    -0.5f, -0.50f, 0.0f
-};
-
-float vert2[] = {
-     0.0f, -1.0f, 0.0f,
-     0.5f,  0.50f, 0.0f,
-    -0.5f,  0.50f, 0.0f
-};
-
-float vert3[] = {
-     0.0f,  1.0f, 0.0f,
-     1.0f,  0.25f, 0.0f,
-     1.0f, -0.25f, 0.0f,
-     0.0f, -1.0f, 0.0f,
-    -1.0f, -0.25f, 0.0f,
-    -1.0f,  0.25f, 0.0f,
-     0.0f,  0.0f, 0.0f,
-     
-};
-
-unsigned int indi[] = {
-    0, 1, 2
-};
-
-unsigned int indi2[] = {
-    0, 6, 1,
-    1, 6, 2,
-    2, 6, 3,
-    3, 6, 4,
-    4, 6, 5,
-    5, 6, 0
 };
 
 int main(void) {
@@ -91,10 +48,10 @@ int main(void) {
     }
 
     // Shader stuff. 
-    Shader shader("../src/shaders/vertexShader.vert.glsl", "../src/shaders/frag_rgb_shader.frag.glsl");
-
-    Shape shape1(vertices, sizeof(vertices), indices, sizeof(indices)); 
-    // Shape shape2(vert2, sizeof(vert2), indi, sizeof(indi)); 
+    Shader shader("../src/shaders/vertexShader.vert.glsl", "../src/shaders/fragmentShader.frag.glsl");
+    
+    // Shape.
+    Shape shape(vertices, sizeof(vertices), indices, sizeof(indices)); 
     
     // while loop goes here.
     while (!glfwWindowShouldClose(window)) {
@@ -104,16 +61,13 @@ int main(void) {
 
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-        shape1.Render(shader);
-        // shape2.Render(shader);
+        shape.Render(shader);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
     
-    shape1.Delete();
-    // shape2.Delete();
-
+    shape.Delete();
     shader.Delete();
     glfwDestroyWindow(window);
 

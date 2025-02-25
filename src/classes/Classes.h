@@ -1,5 +1,6 @@
 #include "ElementBufferObject.h"
 #include "Shader.h"
+#include "Shape.h"
 #include "Texture.h"
 #include "VertexArrayObject.h"
 #include "VertexBufferObject.h"
